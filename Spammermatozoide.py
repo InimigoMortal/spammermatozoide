@@ -22,7 +22,7 @@ mensagem_inicial = """
 print (mensagem_inicial)
 input("")
 line = tr = open('list.txt', 'r').read() 
-match = re.findall(r'[\w\.-]+@[\w\.-]+', line)
+match = re.findall(r'[\w\.-]+@[\w\.-]+\.\w+',line)
 f = open('list-parsed.txt', 'w')
 for i in match:
     i = i.lower()
