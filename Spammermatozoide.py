@@ -14,18 +14,22 @@ mensagem_inicial = """
             `-----'   `---'`     https://github.com/NatanaelAntonioli/spammermatozoide
 
     1)Selecione todo o texto que deseja filtrar (CTRL+A em navegadores)
-    2)Salve-o em um arquivo de nome "list.txt" no mesmo diretório do script.
-    3)Pressione enter quando estiver pronto.
-    4)O resultado final será enviado para "list-parsed.txt".
+    2)Salve-o em um arquivo de nome "list.txt" no mesmo diretório do script. NÃO
+    3)Pressione enter quando estiver pronto. NÃO
+    4)O resultado final será enviado para "list-parsed.txt". NÃO
         """
 
 print (mensagem_inicial)
-input("")
-line = tr = open('list.txt', 'r').read() 
-match = re.findall(r'[\w\.-]+@[\w\.-]+', line)
-f = open('list-parsed.txt', 'w')
-for i in match:
-    i = i.lower()
-    print(" ", i)
-    f.write(i + '\n')
-f.close()
+a = input("Selecione um arquivo: ")
+while a != '':
+    line = tr = open(a, 'r').read() 
+    match = re.findall(r'[\w\.-]+@[\w\.-]+\.\w+',line)
+
+    for i in match:
+        i = i.lower()
+        print(" ", i)
+    print('')
+    a = input('Selecione um arquivo: ')
+
+   
+
