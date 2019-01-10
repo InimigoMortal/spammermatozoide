@@ -20,12 +20,24 @@ mensagem_inicial = """
         """
 
 print (mensagem_inicial)
-input("")
-line = tr = open('list.txt', 'r').read() 
-match = re.findall(r'[\w\.-]+@[\w\.-]+', line)
-f = open('list-parsed.txt', 'w')
-for i in match:
-    i = i.lower()
-    print(" ", i)
-    f.write(i + '\n')
-f.close()
+a = input("Selecione um arquivo: ")
+while a != '':
+    line = tr = open(a, 'r').read() 
+    match = re.findall(r'[\w\.-]+@[\w\.-]+\.\w+',line)
+
+    for i in match:
+        i = i.lower()
+        print(" ", i)
+    print('')
+    b = input('Deseja salvar?(s/n) ')
+    if b == 's':
+        file_name = input('Nomeie o arquivo: ')
+        with open(file_name,'w') as f:
+            for i in match:
+                i = i.lower()
+                f.write(i + '\n')
+        print('Arquivo criado com sucesso!')
+    else:
+        pass
+    print('')
+    a = input('Selecione um arquivo: ')
